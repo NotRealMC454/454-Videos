@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - 454 Videos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="/">▶ 454 Videos</a></div>
+        <div class="nav-links">
+            <a href="/upload" id="nav-upload" class="hidden">⬆ Upload</a>
+            <a href="/login" id="nav-login">Login</a>
+            <div id="nav-user" class="hidden user-menu">
+                <img id="nav-avatar" class="avatar-icon" src="" alt="">
+                <a href="/account" class="user-badge" id="display-user"></a>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="search-header">
+            <input type="text" id="search-input" placeholder="Search for videos or creators..." onkeyup="if(event.key === 'Enter') executeSearch()">
+            <button onclick="executeSearch()" class="primary-btn">Search</button>
+        </div>
+        
+        <div id="top-videos-section" style="margin-bottom: 40px;">
+            <h3 class="section-title" style="color: #f59e0b;">🔥 Top 3 Most Viewed</h3>
+            <div id="top-videos-container" class="grid-container"></div>
+        </div>
+
+        <h3 id="channels-heading" class="hidden section-title" style="color: var(--accent);">Channels</h3>
+        <div id="channels-container" class="channel-list"></div>
+        
+        <h3 id="videos-heading" class="hidden section-title">Search Results</h3>
+        <div id="videos-container" class="grid-container"></div>
+    </main>
+    <script src="/app.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", () => { checkAuth(); loadTopVideos(); });</script>
+</body>
+</html>

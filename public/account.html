@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - 454 Videos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="/">▶ 454 Videos</a></div>
+        <div class="nav-links">
+            <a href="/search">🔍 Search</a>
+            <a href="/upload" id="nav-upload" class="hidden">⬆ Upload</a>
+            <div id="nav-user" class="hidden user-menu">
+                <img id="nav-avatar" class="avatar-icon" src="" alt="">
+                <a href="/account" class="user-badge" id="display-user"></a>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <main class="center-content">
+        <div class="card upload-card">
+            <h2>Account Settings</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img id="settings-avatar" class="large-avatar" src="" alt="">
+            </div>
+            
+            <h3>Profile Picture</h3>
+            <div class="drag-drop-zone" style="margin-top: 10px;">
+                <input type="file" id="avatar-file" accept="image/*" class="hidden-file-input">
+                <label for="avatar-file" class="file-label">
+                    <span style="font-size: 2rem;">🖼️</span>
+                    <p>Click here to upload your profile picture!</p>
+                    <small>Limit 5 MB</small>
+                </label>
+                <div id="selected-avatar-name" style="margin-top:10px; color:var(--accent);"></div>
+            </div>
+            <button onclick="uploadAvatar()" class="primary-btn full-width" style="margin-top:15px;">Update Avatar</button>
+            
+            <hr style="border-color: #27272a; margin: 30px 0;">
+            
+            <h3>Security</h3>
+            <button onclick="promptPasswordChange()" class="secondary-btn full-width" style="margin-top:10px;">🔑 Change Password</button>
+            
+            <hr style="border-color: #27272a; margin: 30px 0;">
+            <a id="my-channel-link" href="#" class="primary-btn full-width" style="display:block; text-align:center;">View My Public Channel</a>
+        </div>
+    </main>
+    <script src="/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { 
+            checkAuth(); 
+            const user = localStorage.getItem('currentUser');
+            if (!user) window.location.href = "/login"; 
+            document.getElementById('my-channel-link').href = `/channel?user=${user}`;
+            fetch(`/api/users/${user}`).then(r=>r.json()).then(data => {
+                if(data.avatar) document.getElementById('settings-avatar').src = data.avatar;
+            });
+            document.getElementById('avatar-file').addEventListener('change', function() {
+                if(this.files[0]) document.getElementById('selected-avatar-name').innerText = "Selected: " + this.files[0].name;
+            });
+        });
+    </script>
+</body>
+</html>
