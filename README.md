@@ -1,14 +1,17 @@
 # 454-Videos
-A functional, fully AI generated video platform. (Gemini 3.1 Pro and Gemini 3.5 Thinking)
 
-Setup process:
+A functional, AI generated video platform.
 
-1. Download node.js from their offical website.
-2. Open the node.js command prompt.
-3. cd into the unzipped 454 Videos folder (I recommend you put it into your user folder on windows)
-4. Type "npm install" it will install all the necessary resources to make this work.
-5. Type "node server.js" then your all set!
-6. On your browser type "http://localhost:3000"
-7. Alternatively you can use a portforwarding service like cloudflared or localtunnel. (This is the safest option rather than exposing ports on your router) 
+This is a more DX favoring version of the [original project](https://github.com/NotRealMC454/454-Videos)
 
-You can download it here! https://github.com/NotRealMC454/454-Videos/releases
+## Starting the backend server:
+
+1. `cd server`
+2. `bun install` or whichever package manager you prefer
+3. `bun run start` or whichever package manager you prefer
+
+## Starting the frontend server:
+
+1. `cd client`
+2. `bun install` or whichever package manager you prefer
+3. `bun run dev` or whichever package manager you prefer

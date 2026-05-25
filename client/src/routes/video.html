@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch - 454 Videos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <button class="hamburger" onclick="toggleSidebar()">☰</button>
+            <a href="/">▶ 454 Videos</a>
+        </div>
+        <div class="nav-links">
+            <a href="/search">🔍 Search</a>
+            <a href="/upload" id="nav-upload" class="hidden">⬆ Upload</a>
+            <a href="/login" id="nav-login">Login</a>
+            <div id="nav-user" class="hidden user-menu">
+                <img id="nav-avatar" class="avatar-icon" src="" alt="">
+                <a href="/account" class="user-badge" id="display-user"></a>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="app-container">
+        <aside id="sidebar" class="sidebar">
+            <h3 class="sidebar-title">Subscriptions</h3>
+            <div id="subscriptions-list" class="subs-list"></div>
+        </aside>
+        <main class="main-content theater-layout">
+            <div id="single-video-container"></div>
+            <div class="comments-wrapper">
+                <h3>Comments (<span id="comment-count">0</span>)</h3>
+                <div class="add-comment-box" id="add-comment-section">
+                    <input type="text" id="comment-input" placeholder="Add a public comment...">
+                    <button onclick="postComment()" class="primary-btn">Post</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="/app.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", () => { checkAuth(); loadSingleVideo(); loadSidebar(); });</script>
+</body>
+</html>

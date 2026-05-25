@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - 454 Videos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <button class="hamburger" onclick="toggleSidebar()">☰</button>
+            <a href="/">▶ 454 Videos</a>
+        </div>
+        <div class="nav-links">
+            <a href="/search">🔍 Search</a>
+            <a href="/changelog">📜 Changelog</a>
+            <a href="/upload" id="nav-upload" class="hidden">⬆ Upload</a>
+            <a href="/login" id="nav-login">Login / Sign Up</a>
+            <div id="nav-user" class="hidden user-menu">
+                <img id="nav-avatar" class="avatar-icon" src="" alt="">
+                <a href="/account" class="user-badge" id="display-user"></a>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="app-container">
+        <aside id="sidebar" class="sidebar">
+            <h3 class="sidebar-title">Subscriptions</h3>
+            <div id="subscriptions-list" class="subs-list">
+                <p style="color:var(--text-muted); font-size:0.9rem; padding: 0 15px;">Log in to see subscriptions.</p>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="hero-section card">
+                <h1>Welcome to 454 Videos</h1>
+                <p>Discover, upload, and share your favorite moments with the world.</p>
+            </div>
+            <section id="video-feed" style="margin-top: 40px;">
+                <h2 class="section-title">Recommended for you</h2>
+                <div id="videos-container" class="grid-container"></div>
+            </section>
+        </main>
+    </div>
+    <script src="/app.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", () => { checkAuth(); loadVideos(); loadSidebar(); });</script>
+</body>
+</html>
