@@ -1,5 +1,5 @@
 # 454-Videos
-A functional, fully AI generated video platform. 
+A functional, fully AI generated video platform. (Gemini 3.1 Pro and Gemini 3.5 Thinking)
 
 Setup process:
 
