@@ -10,3 +10,5 @@ Setup process:
 5. Type "node server.js" then your all set!
 6. On your browser type "http://localhost:3000"
 7. Alternatively you can use a portforwarding service like cloudflared or localtunnel. (This is the safest option rather than exposing ports on your router) 
+
+You can download it here! https://github.com/NotRealMC454/454-Videos/releases
